@@ -56,11 +56,11 @@ for ($i = 1; $i -le $levels.Keys.Count; $i++) {
   
     $level = $levels[$i]
  
-    $isIncreasing = Test-Increasing-Increasing -array $level
+    $isIncreasing = Test-Increasing -array $level
 
-    $isDecreasing = Test-DecreasingDecreasing -array $level
+    $isDecreasing = Test-Decreasing -array $level
 
-    $isValidDifference = Test-Verschil-array $level
+    $isValidDifference = Test-Verschil -array $level
 
     if (($isIncreasing -or $isDecreasing) -and $isValidDifference) {
         $safe += 1
