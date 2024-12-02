@@ -1,5 +1,5 @@
 #part 1 van dag 2
-function Is-Increasing {
+function Test-Increasing {
     param (
        [int[]]$array 
     )
@@ -11,7 +11,7 @@ function Is-Increasing {
     return $true
 }
 
-function Is-Decreasing {
+function Test-Decreasing {
     param (
        [int[]]$array 
     )
@@ -23,7 +23,7 @@ function Is-Decreasing {
     return $true
 }
 
-function Verschil-Tussen1en3 {
+function Test-Verschil {
     param(
         [int[]]$array
     )
