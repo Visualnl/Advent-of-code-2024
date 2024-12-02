@@ -1,3 +1,4 @@
+#part 1 van dag 2
 function Is-Increasing {
     param (
        [int[]]$array 
@@ -68,3 +69,5 @@ for ($i = 1; $i -le $levels.Keys.Count; $i++) {
 
 
 Write-Host $safe
+
+#part 2 van day2
