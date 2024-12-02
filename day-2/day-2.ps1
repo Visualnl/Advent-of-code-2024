@@ -49,20 +49,18 @@ foreach($level in $array) {
 
 $safe = 0
 
-for ($i = 1; $i -le $levels.Keys.Count; $i++) {
-    # Haal het array op voor de huidige key
-    $level = $levels[$i]
 
-    # Controleer of het array oplopend is
+
+for ($i = 1; $i -le $levels.Keys.Count; $i++) {
+  
+    $level = $levels[$i]
+ 
     $isIncreasing = Is-Increasing -array $level
 
-    # Controleer of het array aflopend is
     $isDecreasing = Is-Decreasing -array $level
 
-    # Controleer of het verschil tussen opeenvolgende getallen geldig is
     $isValidDifference = Verschil-Tussen1en3 -array $level
 
-    # Als het array oplopend of aflopend is en het verschil valide is, verhoog dan $safe
     if (($isIncreasing -or $isDecreasing) -and $isValidDifference) {
         $safe += 1
     }
