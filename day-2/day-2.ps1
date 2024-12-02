@@ -22,6 +22,19 @@ function Is-Decreasing {
     return $true
 }
 
+function Verschil-Tussen1en3 {
+    param(
+        [int[]]$array
+    )
+    for($i = 0 ; $i -lt $array.length - 1; $i++) {
+        $verschil =  $array[$i] - $array[$i + 1] 
+        if($verschil -notin -1,-2,-3,1,2,3) {
+           return $false
+        }
+    }
+    return $true
+
+}
 
 
 $array = Get-Content -path "day-2-input.txt"
@@ -34,6 +47,26 @@ foreach($level in $array) {
 }
 
 
-# Toon de uitkomst van de controle
-Write-Host "Level 1 is increasing: $(Is-Increasing -array $levels[1])"
-Write-Host "Level 1 is decreasing: $(Is-Decreasing -array $levels[923])"
+$safe = 0
+
+for ($i = 1; $i -le $levels.Keys.Count; $i++) {
+    # Haal het array op voor de huidige key
+    $level = $levels[$i]
+
+    # Controleer of het array oplopend is
+    $isIncreasing = Is-Increasing -array $level
+
+    # Controleer of het array aflopend is
+    $isDecreasing = Is-Decreasing -array $level
+
+    # Controleer of het verschil tussen opeenvolgende getallen geldig is
+    $isValidDifference = Verschil-Tussen1en3 -array $level
+
+    # Als het array oplopend of aflopend is en het verschil valide is, verhoog dan $safe
+    if (($isIncreasing -or $isDecreasing) -and $isValidDifference) {
+        $safe += 1
+    }
+}
+
+
+Write-Host $safe
