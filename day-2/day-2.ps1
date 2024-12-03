@@ -62,10 +62,6 @@ for ($i = 1; $i -le $levels.Keys.Count; $i++) {
 
     $isValidDifference = Test-Verschil -array $level
 
-    $arrayList = [System.Collections.ArrayList]$level
-
-    
-
     if (($isIncreasing -or $isDecreasing) -and $isValidDifference) {
         $safe += 1
     } else {
