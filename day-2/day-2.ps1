@@ -1,4 +1,4 @@
-#part 1 van dag 2
+#dag2
 function Test-Increasing {
     param (
        [int[]]$array 
@@ -49,7 +49,7 @@ foreach($level in $array) {
 
 
 $safe = 0
-
+$proberen
 
 
 for ($i = 1; $i -le $levels.Keys.Count; $i++) {
@@ -62,12 +62,30 @@ for ($i = 1; $i -le $levels.Keys.Count; $i++) {
 
     $isValidDifference = Test-Verschil -array $level
 
+    $arrayList = [System.Collections.ArrayList]$level
+
+    
+
     if (($isIncreasing -or $isDecreasing) -and $isValidDifference) {
         $safe += 1
+    } else {
+        $isNuwelSafe = $false
+        for($j = 0; $j -lt $level.length; $j++) {
+            $tempArray = [System.Collections.ArrayList]@($level)
+            $tempArray.RemoveAt($j)
+            $JisIncreasing = Test-Increasing -array $tempArray
+            $JisDecreasing = Test-Decreasing -array $tempArray
+            $JisValidDifference = Test-Verschil -array $tempArray
+            if(($JisIncreasing -or $JisDecreasing) -and $JisValidDifference) {
+                $isNuwelSafe = $true
+                 break
+            }
+        }
+        if($isNuwelSafe) {
+            $safe  += 1
+        }
     }
 }
 
 
 Write-Host $safe
-
-#part 2 van day2
