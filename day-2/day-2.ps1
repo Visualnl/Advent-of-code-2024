@@ -28,8 +28,7 @@ function Test-Verschil {
         [int[]]$array
     )
     for($i = 0 ; $i -lt $array.length - 1; $i++) {
-        $verschil =  $array[$i] - $array[$i + 1] 
-        if($verschil -notin -1,-2,-3,1,2,3) {
+        if([Math]::Abs( $array[$i] - $array[$i + 1]) -gt 3) {
            return $false
         }
     }
@@ -52,7 +51,7 @@ $safe = 0
 $proberen
 
 
-for ($i = 1; $i -le $levels.Keys.Count; $i++) {
+for ($i = 1; $i -le $levels.Keys.Count ; $i++) {
   
     $level = $levels[$i]
  
