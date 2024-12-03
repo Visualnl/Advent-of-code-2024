@@ -1,14 +1,14 @@
 #eerste gedeelte day1
 
-$array = Get-Content -path "day-1-input.txt" 
 $links = @()
 $rechts = @()
-for($i = 0; $i -lt $array.Length; $i++) {
-    $zonderSpace = $array[$i] -replace "\s+", ""
-    $linksgetal =  $zonderSpace.Substring(0,5)
-    $links += $linksgetal
-    $rechtsgetal = $zonderSpace.Substring(5,5)
-    $rechts += $rechtsgetal 
+
+$array = Get-Content -path "day-1-input.txt" | ForEach-Object {
+    $zonderSpace = $_ -replace "\s+", "";
+    $linksgetal =  $zonderSpace.Substring(0,5);
+    $links += $linksgetal;
+    $rechtsgetal = $zonderSpace.Substring(5,5);
+    $rechts += $rechtsgetal ;
 }
 
 $linksGesorteerd = $links | Sort-Object
