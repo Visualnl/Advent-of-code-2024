@@ -48,12 +48,6 @@ for($r = 3; $r -lt $matrix.Length; $r++) {
     }
 }
 
-
-
-
-
-$opgeteld2 = 0
-
 for ($r = 1; $r -lt $matrix.Length - 1; $r++) {
     for ($c = 1; $c -lt $matrix[$r].Length - 1; $c++) {
         
