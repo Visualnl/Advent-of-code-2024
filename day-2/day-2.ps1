@@ -51,7 +51,7 @@ $safe = 0
 $proberen
 
 
-for ($i = 1; $i -le $levels.Keys.Count ; $i++) {
+for ($i = 1; $i -l $levels.Keys.Count ; $i++) {
   
     $level = $levels[$i]
  

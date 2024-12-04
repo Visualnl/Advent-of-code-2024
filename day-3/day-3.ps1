@@ -1,10 +1,7 @@
-
 $verwijderdPattern = "(?s)don't.*?(?=do)"
-
 
 $string = Get-Content "day-3-input.txt" -Raw
 $string = $string -replace $verwijderdPattern, ''
-
 
 $pattern = 'mul\((\b\d+),(\b\d+)\)'
 
@@ -17,4 +14,4 @@ foreach ($resultaat in $resultaten) {
 }
 
 
-Write-Host "De totale som is: $opgeteld"
+Write-Host "De totale som is: $($opgeteld)"
