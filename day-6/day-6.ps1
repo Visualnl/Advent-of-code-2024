@@ -1,16 +1,15 @@
 $input = Get-Content -Path "day-6-input.txt" 
 
-# Maak de matrix
+
 $matrix = @()
 foreach ($line in $input) {
     $matrix += ,@($line.ToCharArray())
 }
 
-# Richtingen en bijbehorende delta's (up, right, down, left)
-$deltaX = @(0, 1, 0, -1)  # Veranderingen in kolom
-$deltaY = @(-1, 0, 1, 0)  # Veranderingen in rij
+$deltaX = @(0, 1, 0, -1)  
+$deltaY = @(-1, 0, 1, 0)  
 
-# Zoek de startpositie van de bewaker
+
 $huidigeRichting = 0  
 $posities = @()
 for ($rijIndex = 0; $rijIndex -lt $matrix.Count; $rijIndex++) {
